@@ -16,3 +16,16 @@ To see the theme in action, start your PokeLink session and open the `index.html
 ## Using Custom Themes
 
 PokeLink will provide a list of themes and their URLs in the Web Sources tab to use on OBS. If you develop your own theme, you can use it on OBS as well. Simply open the theme html file and copy the local file's path from the URL bar. Then use this local URL on OBS as the source for your Browser Source.
+
+## Next
+
+For the next version, the following files need to be cleanes after all themes are migratted
+
+- .htacces
+- assets
+- clientSettings.js
+- themes
+
+## Themes migrated
+
+- template (fallback for badges theme)

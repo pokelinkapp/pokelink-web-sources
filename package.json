@@ -1,0 +1,78 @@
+{
+  "name": "pokelink-web",
+  "version": "1.0.0",
+  "description": "Repository containing the different themes available on the PokeLink app",
+  "main": "clientSettings.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cysha/pokelink-web.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cysha/pokelink-web/issues"
+  },
+  "homepage": "https://github.com/Cysha/pokelink-web#readme",
+  "dependencies": {
+    "core-js": "^3.8.3",
+    "pokelink-client": "file:pokelink-client",
+    "vue": "^2.6.12"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.5.11",
+    "@vue/cli-plugin-eslint": "^4.5.11",
+    "@vue/cli-service": "^4.5.11",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.18.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-vue": "^7.5.0",
+    "husky": "^4.3.8",
+    "lint-staged": "^10.5.3",
+    "prettier": "^2.2.1",
+    "vue-template-compiler": "^2.6.12"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "plugin:prettier/recommended",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {
+      "no-prototype-builtins": "off",
+      "prettier/prettier": [
+        "error",
+        {
+          "endOfLine": "auto"
+        }
+      ]
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js, vue}": [
+      "eslint --fix"
+    ]
+  },
+  "scripts": {
+    "start": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "format": "eslint \"./pokelink-client/**/*.js\" \"./pokelink-client/**/*.vue\" --fix"
+  }
+}

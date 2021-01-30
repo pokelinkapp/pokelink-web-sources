@@ -1,0 +1,17 @@
+{
+  "name": "pokelink-client",
+  "version": "0.0.0",
+  "description": "Client to handle web socket comunication between PokeLink app and its themes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "collect.js": "^4.28.6",
+    "color-hash": "^1.0.3",
+    "deepmerge": "^4.2.2",
+    "socket.io-client": "2.2.0"
+  }
+}

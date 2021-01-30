@@ -1,0 +1,9 @@
+export { default as getStatusColor } from "./getStatusColor";
+export { default as getTypecolor } from "./getTypeColor";
+export { default as hex2rgba } from "./hex2rgba";
+export { default as normalizeColor } from "./normalizeColor";
+export { default as string2Hex } from "./string2Hex";
+export { default as transformPokemon } from "./transformPokemon";
+export { default as trimSprite } from "./trim";
+export { default as unCamelCase } from "./unCamelCase";
+export { default as getParam } from "./getParam";
