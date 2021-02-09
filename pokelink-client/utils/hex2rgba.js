@@ -7,4 +7,4 @@ const hex2rgba = (_hex, opacity) => {
   return "rgba(" + r + "," + g + "," + b + "," + opacity / 100 + ")";
 };
 
-export default hex2rgba;
+module.exports = { hex2rgba };

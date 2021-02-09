@@ -16,4 +16,4 @@ const unCamelCase = (str) => {
   );
 };
 
-export default unCamelCase;
+module.exports = { unCamelCase };

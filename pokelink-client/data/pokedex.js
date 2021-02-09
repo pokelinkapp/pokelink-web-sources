@@ -1,6 +1,6 @@
-import collect from "collect.js";
+const collect = require("collect.js");
 
-export default collect([
+module.exports = collect([
   {
     id: 0,
     name: {

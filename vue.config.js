@@ -19,7 +19,7 @@ const fallbackSettings = (name) => ({
 const pages = config.reduce((themes, theme) => {
   const { name, path: themePath } = theme;
   const themeBasePath = `${basePath}/${themePath}`;
-  const themeSettingsFile = `${themeBasePath}/theme.config.json`;
+  const themeSettingsFile = `${themeBasePath}/theme.config.js`;
   try {
     const settings = require(themeSettingsFile);
     const { party, badges } = settings.templates;

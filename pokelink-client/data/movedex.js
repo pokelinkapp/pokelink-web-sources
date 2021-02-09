@@ -1,6 +1,6 @@
-import collect from "collect.js";
+const collect = require("collect.js");
 
-export default collect([
+module.exports = collect([
   {
     accuracy: 100,
     category: "\u7269\u7406",

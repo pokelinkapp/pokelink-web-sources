@@ -1,9 +1,21 @@
-export { default as getStatusColor } from "./getStatusColor";
-export { default as getTypecolor } from "./getTypeColor";
-export { default as hex2rgba } from "./hex2rgba";
-export { default as normalizeColor } from "./normalizeColor";
-export { default as string2Hex } from "./string2Hex";
-export { default as transformPokemon } from "./transformPokemon";
-export { default as trimSprite } from "./trim";
-export { default as unCamelCase } from "./unCamelCase";
-export { default as getParam } from "./getParam";
+const { getStatusColor } = require("./getStatusColor");
+const { getTypecolor } = require("./getTypeColor");
+const { hex2rgba } = require("./hex2rgba");
+const { normalizeColor } = require("./normalizeColor");
+const { string2Hex } = require("./string2Hex");
+const { transformPokemon } = require("./transformPokemon");
+const { trimSprite } = require("./trim");
+const { unCamelCase } = require("./unCamelCase");
+const { getParam } = require("./getParam");
+
+module.exports = {
+  getStatusColor,
+  getTypecolor,
+  hex2rgba,
+  normalizeColor,
+  string2Hex,
+  transformPokemon,
+  trimSprite,
+  unCamelCase,
+  getParam,
+};

@@ -1,4 +1,5 @@
 <script>
+import "../css/reset.css";
 import Client from "pokelink-client";
 import { transformPokemon } from "pokelink-client/utils";
 import config from "../theme.config";
@@ -73,7 +74,22 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.pkmn-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.pkmn-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+</style>
 
 <template>
   <div class="pokes">

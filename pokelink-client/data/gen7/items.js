@@ -1,4 +1,4 @@
-export default [
+module.exports = [
   { id: 0, hex: 0x0000, name: "None" },
   { id: 1, hex: 0x0001, name: "Master Ball" },
   { id: 2, hex: 0x0002, name: "Ultra Ball" },

@@ -1,4 +1,4 @@
-import hex2rgba from "./hex2rgba";
+const hex2rgba = require("./hex2rgba");
 
 const normalizeColor = (str, opacity = 100, clientSettings) => {
   // hex color
@@ -25,4 +25,4 @@ const normalizeColor = (str, opacity = 100, clientSettings) => {
   return str;
 };
 
-export default normalizeColor;
+module.exports = { normalizeColor };

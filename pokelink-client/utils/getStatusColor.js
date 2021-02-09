@@ -9,4 +9,4 @@ const getStatusColor = (status, clienttSettings) => {
   return clienttSettings.statusColors[status.toLowerCase()];
 };
 
-export default getStatusColor;
+module.exports = { getStatusColor };

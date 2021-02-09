@@ -10,7 +10,7 @@ const buildThemeIndex = () => {
     const themeConfig = require(path.resolve(
       THEMES_PATH,
       currentTheme,
-      "theme.config.json"
+      "theme.config.js"
     ));
 
     if (themeConfig.variants) {

@@ -9,4 +9,4 @@ const getTypeColor = (type, clientSettings) => {
   return clientSettings.typeColors[type.toLowerCase()];
 };
 
-export default getTypeColor;
+module.exports = { getTypeColor };

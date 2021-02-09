@@ -1,9 +1,9 @@
-import collect from "collect.js";
-import unCamelCase from "./unCamelCase";
-import pokedex from "../data/pokedex";
-import movedex from "../data/movedex";
-import itemdex from "../data/itemdex";
-import locationdex from "../data/locationdex";
+const collect = require("collect.js");
+const { unCamelCase } = require("./unCamelCase");
+const pokedex = require("../data/pokedex").default;
+const movedex = require("../data/movedex").default;
+const itemdex = require("../data/itemdex").default;
+const locationdex = require("../data/locationdex").default;
 
 const transformPokemon = (pokemon, settings) => {
   let entry;
@@ -236,4 +236,4 @@ const transformPokemon = (pokemon, settings) => {
   return pokemon;
 };
 
-export default transformPokemon;
+module.exports = { transformPokemon };

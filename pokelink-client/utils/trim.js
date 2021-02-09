@@ -57,4 +57,4 @@ const trimCanvas = (c) => {
   return copy.canvas;
 };
 
-export default trimCanvas;
+module.exports = { trimCanvas };

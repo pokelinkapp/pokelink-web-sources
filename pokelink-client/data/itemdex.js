@@ -1,11 +1,11 @@
-import collect from "collect.js";
-import gen3 from "./gen3/items";
-import gen4 from "./gen4/items";
-import gen5 from "./gen5/items";
-import gen6 from "./gen6/items";
-import gen7 from "./gen7/items";
+const collect = require("collect.js");
+const gen3 = require("./gen3/items").default;
+const gen4 = require("./gen4/items").default;
+const gen5 = require("./gen5/items").default;
+const gen6 = require("./gen6/items").default;
+const gen7 = require("./gen7/items").default;
 
-export default collect({
+module.exports = collect({
   gen3,
   gen4,
   gen5,

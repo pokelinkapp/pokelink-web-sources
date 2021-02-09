@@ -55,17 +55,56 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss">
+.pokemon {
+  text-align: center;
+
+  &__sprite-wrapper {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__sprite {
+    max-height: 95%;
+  }
+
+  &__details {
+    display: block;
+
+    .details__name {
+      font-weight: bold;
+      color: #c0c0c0;
+    }
+
+    .details__hp {
+      border: 1px solid #000000;
+      height: 5px;
+      width: 100%;
+
+      .hp__bar {
+        background-color: #ff0000;
+        height: 5px;
+      }
+    }
+  }
+}
+</style>
 
 <template>
-  <div :class="{ pokemon: true }" :style="{ opacity: opacity }">
-    <img
-      v-if="pokemon.isEgg"
-      class="sprite"
-      :src="pokemon.img"
-      style="max-height: 80px"
-    />
-    <img v-else class="sprite" :src="pokemon.img" />
+  <div class="pokemon" :style="{ opacity: opacity }">
+    <div class="pokemon__sprite-wrapper" v-if="pokemon.isEgg">
+      <img
+        class="pokemon__sprite"
+        :src="pokemon.img"
+        style="max-height: 80px"
+      />
+    </div>
+    <div class="pokemon__sprite-wrapper" v-else>
+      <img class="pokemon__sprite" :src="pokemon.img" />
+    </div>
     <div class="pokemon__details">
       <div class="details__name">
         {{ pokemon.nickname }} Lv.<span>{{ pokemon.level }}</span>

@@ -1,4 +1,5 @@
 <script>
+import "../css/reset.css";
 import Client from "pokelink-client";
 import config from "../theme.config";
 
@@ -12,6 +13,7 @@ export default {
       loaded: false,
       settings: {},
       badges: [],
+      gymAces: [],
     };
   },
 
@@ -20,6 +22,7 @@ export default {
     this.loaded = true;
     this.connected = false;
     this.client = new Client("badges", config.settings);
+    this.gymAces = this.client.settings.theme.gymAces();
   },
 
   // onMounted lifecycle
@@ -62,17 +65,66 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  font-family: sans-serif;
+}
+
+.badge {
+  &__slot {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    img {
+      width: 100%;
+    }
+
+    &--inactive img {
+      -webkit-filter: grayscale(100%) brightness(0);
+      filter: grayscale(100%) brightness(0);
+      opacity: 0.6;
+    }
+
+    &--inactive .badge__level {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__level {
+    font-size: 80px;
+    color: white;
+    -webkit-text-stroke-width: 5px;
+    -webkit-text-stroke-color: black;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    font-weight: bold;
+  }
+}
+</style>
 
 <template>
   <div id="badges">
     <ul class="badges" v-if="connected && loaded">
       <li
-        v-for="badge in badges"
+        v-for="(badge, idx) in badges"
         :key="badge.img"
         :class="{ badge__slot: true, 'badge__slot--inactive': !badge.active }"
       >
         <img :src="badge.img" :alt="badge.label" />
+        <p v-if="gymAces && gymAces[idx]" class="badge__level">
+          {{ gymAces[idx] }}
+        </p>
       </li>
     </ul>
     <div v-else class="no-connection">
