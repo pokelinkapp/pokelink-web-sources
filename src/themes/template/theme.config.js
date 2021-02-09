@@ -1,4 +1,3 @@
-const { getParam } = require("pokelink-client/utils");
 module.exports = {
   templates: {
     party: "./party.js",
@@ -7,14 +6,6 @@ module.exports = {
   settings: {
     theme: {
       name: "Base Template",
-      gymAces: function () {
-        const userGymAces = getParam("gymAces");
-        if (userGymAces !== null && userGymAces.length > 0) {
-          return userGymAces.split(",");
-        }
-
-        return [];
-      },
     },
     debug: false,
 

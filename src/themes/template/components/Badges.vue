@@ -1,6 +1,7 @@
 <script>
 import "../css/reset.css";
 import Client from "pokelink-client";
+const { getParam } = require("pokelink-client/utils");
 import config from "../theme.config";
 
 export default {
@@ -19,10 +20,14 @@ export default {
 
   // onCreated Lifecycle
   created: function () {
+    const userGymAces = getParam("gymAces");
     this.loaded = true;
     this.connected = false;
     this.client = new Client("badges", config.settings);
-    this.gymAces = this.client.settings.theme.gymAces();
+    this.gymAces =
+      userGymAces !== null && userGymAces.length > 0
+        ? userGymAces.split(",")
+        : [];
   },
 
   // onMounted lifecycle
