@@ -47,7 +47,7 @@ export default {
       }
       if (payload.username !== this.client.settings.currentUser) return;
 
-      this.badges = payload.trainer.badges.map(function (badge) {
+      this.badges = payload.trainer.badges.map((badge) => {
         var badgeObj = {};
         badgeObj.img =
           this.client.settings.imgPaths.badges +
