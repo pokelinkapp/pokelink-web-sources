@@ -1,8 +1,12 @@
+const fs = require("fs");
 const path = require("path");
-const config = require("./src/themes/themes.config");
+const { buildThemeIndex } = require("./scripts/buildThemeIndex");
 
+const isProd = process.env.NODE_ENV === "production";
+const config = buildThemeIndex();
 const basePath = "./src/themes";
 const templateFile = "./src/public/index.html";
+const webpackPlugins = [];
 
 const fallbackSettings = (name) => ({
   badges: {
@@ -12,10 +16,10 @@ const fallbackSettings = (name) => ({
   },
 });
 
-const pages = config.themes.reduce((themes, theme) => {
+const pages = config.reduce((themes, theme) => {
   const { name, path: themePath } = theme;
   const themeBasePath = `${basePath}/${themePath}`;
-  const themeSettingsFile = `${themeBasePath}/theme.config.js`;
+  const themeSettingsFile = `${themeBasePath}/theme.config.json`;
   try {
     const settings = require(themeSettingsFile);
     const { party, badges } = settings.templates;
@@ -48,7 +52,27 @@ const pages = config.themes.reduce((themes, theme) => {
   }
 }, {});
 
+const PostBuildHoook = function () {
+  this.apply = function (compiler) {
+    if (compiler.hooks && compiler.hooks.done) {
+      compiler.hooks.done.tap("post-build-hook", () => {
+        const outDir = compiler.outputPath;
+        const outFile = path.resolve(outDir, "themes.json");
+        fs.writeFileSync(outFile, JSON.stringify(config, null, 2));
+        console.info(`[INFO] themes.json written to  ${outDir}`);
+      });
+    }
+  };
+};
+
+if (isProd) {
+  webpackPlugins.push(new PostBuildHoook());
+}
+
 module.exports = {
   publicPath: process.env.NODE_ENV === "production" ? "/themes/" : "/",
   pages,
+  configureWebpack: {
+    plugins: webpackPlugins,
+  },
 };
