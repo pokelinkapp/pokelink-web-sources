@@ -195,9 +195,9 @@ class Client {
         if (this.settings.debug) {
           console.log([
             "setting game to gen: " +
-              this.game.generation +
+              this.settings.game.generation +
               " - " +
-              this.game.name,
+              this.settings.game.name,
           ]);
         }
         this.events.emit("player:trainer:updated", player);

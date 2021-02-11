@@ -1,7 +1,7 @@
 <script>
 import "../css/reset.css";
 import Client from "pokelink-client";
-const { getParam } = require("pokelink-client/utils");
+import { getParam } from "pokelink-client/utils";
 import config from "../theme.config";
 
 export default {

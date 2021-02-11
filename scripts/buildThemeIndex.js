@@ -6,6 +6,7 @@ const buildThemeIndex = () => {
   const themes = fs.readdirSync(THEMES_PATH).filter((t) => {
     return !path.extname(t);
   });
+
   return themes.reduce((allThemes, currentTheme) => {
     const themeConfig = require(path.resolve(
       THEMES_PATH,
@@ -13,12 +14,18 @@ const buildThemeIndex = () => {
       "theme.config.js"
     ));
 
+    allThemes.push({
+      name: themeConfig.settings.theme.name,
+      path: currentTheme,
+    });
+
     if (themeConfig.variants) {
-      // do the variants here
-    } else {
-      allThemes.push({
-        name: themeConfig.settings.theme.name,
-        path: currentTheme,
+      themeConfig.variants.forEach((variant) => {
+        allThemes.push({
+          name: `${themeConfig.settings.theme.name} (${variant.name})`,
+          path: currentTheme,
+          params: variant.params,
+        });
       });
     }
 
