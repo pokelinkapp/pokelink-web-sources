@@ -243,6 +243,11 @@ export default {
 </script>
 
 <style lang="scss">
+@font-face {
+  font-family: RifficFree;
+  src: local("RifficFree"), url("../css/RifficFree-Bold.ttf");
+}
+
 .pokemon__list .pokemon {
   width: 260px;
   height: 144px;
