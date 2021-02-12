@@ -187,9 +187,6 @@ export default {
       if (this.pokemon) {
         let primaryType = this.pokemon.types[0].label.toLowerCase();
         let secondaryType = primaryType;
-        // if (this.pokemon.types.length > 1) {
-        //   secondaryType = this.pokemon.types[1].label.toLowerCase()
-        // }
 
         styles = {
           ...styles,

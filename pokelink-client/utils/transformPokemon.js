@@ -1,9 +1,11 @@
 const collect = require("collect.js");
 const { unCamelCase } = require("./unCamelCase");
-const pokedex = require("../data/pokedex").default;
-const movedex = require("../data/movedex").default;
-const itemdex = require("../data/itemdex").default;
-const locationdex = require("../data/locationdex").default;
+const pokedex = require("../data/pokedex");
+const movedex = require("../data/movedex");
+const itemdex = require("../data/itemdex");
+const locationdex = require("../data/locationdex");
+
+console.log("locationdex", locationdex);
 
 const transformPokemon = (pokemon, settings) => {
   let entry;
